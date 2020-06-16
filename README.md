@@ -7,4 +7,7 @@ All the steps should be logged into a file of your choosing along with the wifi 
 
 The script itself should be chmod +x, then I suggest scheduling this to run every x mins via your crontab.  This runs every 5 mins on my home server.
 
+# H3 Future to-dos
 Possible desired extensions will be rotation of the logfile (logrotate?) or trimming of the logfile based on size.
+Non-Wifi connections?
+Make more efficient; capture /proc/ call and awk data vs two /proc/ calls
