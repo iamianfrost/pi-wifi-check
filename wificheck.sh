@@ -4,14 +4,13 @@
 
 # Settings
 loglocation="<LOCATION OF LOG FILE ON DISK>"  #e.g. /home/pi/local/wifi.log
-failcount=3 #number of times before restarting machine  
-interface="wlan0" # your wifi interface to use
+failcount=3 # Number of times before restarting machine  
+interface="wlan0" # Your wifi interface to use
 ip="<IP TO PING>" #e.g. 192.168.1.1
 
 # Script
 ping -c3 $ip > /dev/null 2>&1 
 
- 
 if [ $? != 0 ] 
 then 
   echo "`date '+%d/%m/%Y %H:%M:%S'` No network connection, restarting wlan0" >> $loglocation
