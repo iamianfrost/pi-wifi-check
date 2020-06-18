@@ -13,14 +13,14 @@ ping -c3 $ip > /dev/null 2>&1
 
 if [ $? != 0 ] 
 then 
-  echo "`date '+%d/%m/%Y %H:%M:%S'` No network connection, restarting " $interface >> $loglocation
+  echo "`date '+%d/%m/%Y %H:%M:%S'` No network connection, restarting $interface" >> $loglocation
   
   sudo ip link set $interface down
   sleep 30
   sudo ip link set $interface up
   
 else
- echo "`date '+%d/%m/%Y %H:%M:%S'` All ok. Quality:`cat /proc/net/wireless | awk 'END { print $3 }' | sed 's/\.$//'`, Level:`cat /proc/net/wireless | awk 'END { print $4 }' | sed 's/\.$//'` " >> $loglocation
+ echo "`date '+%d/%m/%Y %H:%M:%S'` $interface ok. Quality:`cat /proc/net/wireless | awk 'END { print $3 }' | sed 's/\.$//'`, Level:`cat /proc/net/wireless | awk 'END { print $4 }' | sed 's/\.$//'` " >> $loglocation
 fi
 
 if [[ $(tail -n $failcount $loglocation | grep "No network" | wc -l) -eq $failcount ]];
