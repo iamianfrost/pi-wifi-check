@@ -13,7 +13,7 @@ ping -c3 $ip > /dev/null 2>&1
 
 if [ $? != 0 ] 
 then 
-  echo "`date '+%d/%m/%Y %H:%M:%S'` No network connection, restarting wlan0" >> $loglocation
+  echo "`date '+%d/%m/%Y %H:%M:%S'` No network connection, restarting " $interface >> $loglocation
   
   sudo ip link set $interface down
   sleep 30
