@@ -25,7 +25,7 @@ fi
 
 if [[ $(tail -n $failcount $loglocation | grep "No network" | wc -l) -eq $failcount ]];
 then
-  echo "`date '+%d/%m/%Y %H:%M:%S'` Last network restores failed, restarting " >> $loglocation
+  echo "`date '+%d/%m/%Y %H:%M:%S'` Last network restores failed, restarting machine" >> $loglocation
   sleep 1 
   reboot
 fi
