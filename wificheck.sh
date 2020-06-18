@@ -3,10 +3,10 @@
 # keep wifi alive through pinging router/external service; if this fails, attempt to restart the interface.  If that fails repeatedly, reboot.
 
 # Settings
-loglocation="/home/pi/Scripts/tmp/wifi.log"  # e.g. /home/pi/local/wifi.log
+loglocation="LOG_FILE_LOCATION"  # e.g. /home/pi/local/wifi.log
 failcount=3 # Number of times before restarting machine
-interface="wlan1" # Your wifi interface to use
-ip="10.0.0.1" # e.g. 192.168.1.1/pi/Scripts/tmp/wifi.log"
+interface="wlan0" # Your wifi interface to use
+ip="192.168.1.1" # e.g. 192.168.1.1
 
 # Script
 
