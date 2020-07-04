@@ -14,7 +14,11 @@ if [ "$1" != "" ]; then
   case $1 in
         -l | --lastfail )  grep "No network" $loglocation | tail -1; exit;;
         -r | --lastreboot ) grep "restarting machine" $loglocation | tail -1; exit;;
-        -h | --help ) echo "Usage: $0 [[-l last network failure] | [-r last machine reboot] | [-h help]] | or without parameter to execute wifi check"; exit;; 
+        -c | --clearlog )
+          echo "" > $loglocation;
+          echo "Log file ($loglocation) cleared";
+          exit;;
+        -h | --help ) echo "Usage: $0 [[-l last network failure] | [-r last machine reboot] | [-c clear log file] | [-h help]] | or without parameter to execute wifi check"; exit;; 
 esac
 fi
 
